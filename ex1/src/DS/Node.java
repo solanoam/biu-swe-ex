@@ -7,9 +7,17 @@ public class Node {
 
     public Node() {
         this.val = 0;
+        this.nextNode = null;
     }
+
     public Node(int val) {
         this.val = val;
+        this.nextNode = null;
+    }
+
+    public Node(int val, Node nextNode) {
+        this.val = val;
+        this.nextNode = nextNode;
     }
 
     public void setVal(int val) {
