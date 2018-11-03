@@ -28,29 +28,31 @@ public class MyLinkedList {
     public void IncElementsSize(){
         this.elementsNum++;
     }
+    public void DecElementsSize(){
+        this.elementsNum--;
+    }
+
     public void AddNode(Node n){
-        Node temp;
-        temp = this.head;
-        while (temp != null) {
-            if (temp.getNextNode() != null){
-                temp = temp.getNextNode();
+        Node currentNode = this.head;
+        while (currentNode != null) {
+            if (currentNode.getNextNode() != null){
+                currentNode = currentNode.getNextNode();
             }
             else {
-                temp.setNextNode(n);
+                currentNode.setNextNode(n);
                 IncElementsSize();
             }
         }
     }
     public void AddNode(Node n, int index){
-        Node currentNode;
-        Node nextNewNode;
-        currentNode = this.head;
+        Node currentNode = this.head;
         for (int i = 0 ; i <= index ; i++){
             currentNode = currentNode.getNextNode();
             if (currentNode == null) {
                 return;
             }
         }
+        Node nextNewNode;
         if (currentNode.getNextNode() != null) {
             nextNewNode = currentNode.getNextNode();
         }
@@ -62,9 +64,38 @@ public class MyLinkedList {
         IncElementsSize();
     }
     public void RemoveNode(){
-
+        Node currentNode = null;
+        Node prevNode = currentNode;
+        currentNode = this.head;
+        while (currentNode != null) {
+            if (currentNode.getNextNode() != null){
+                prevNode = currentNode;
+                currentNode = currentNode.getNextNode();
+            }
+            else {
+                prevNode.setNextNode(null);
+                DecElementsSize();
+            }
+        }
     }
-    public void RemoveNode(int index){
-
+    public void RemoveNode(int index) {
+        Node currentNode;
+        Node nextNewNode;
+        Node prevNode;
+        currentNode = this.head;
+        for (int i = 0; i <= index; i++) {
+            prevNode = currentNode;
+            currentNode = currentNode.getNextNode();
+            if (currentNode == null) {
+                return;
+            }
+        }
+        if (currentNode.getNextNode() != null) {
+            nextNewNode = currentNode.getNextNode();
+        } else {
+            nextNewNode = null;
+        }
+        prevNode.setNextNode(nextNewNode);
+        DecElementsSize();
     }
 }
