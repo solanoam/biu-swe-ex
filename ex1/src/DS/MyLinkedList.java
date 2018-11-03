@@ -103,11 +103,13 @@ public class MyLinkedList {
         while (currentNode != null) {
             if (currentNode.getNextNode() != null){
                 currentNode = currentNode.getNextNode();
-                system.out.println("Object's Index's:" + index);
-                system.out.println("Object's Value's:" + currentNode.getVal());
+                System.out.println("Object's Index's:" + index);
+                System.out.println("Object's Value's:" + currentNode.getVal());
                 index++;
             }
         }
     }
+    public void Reverse(){
+
     }
 }
