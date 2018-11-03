@@ -79,10 +79,8 @@ public class MyLinkedList {
         }
     }
     public void RemoveNode(int index) {
-        Node currentNode;
-        Node nextNewNode;
-        Node prevNode;
-        currentNode = this.head;
+        Node currentNode = this.head;
+        Node prevNode = currentNode;
         for (int i = 0; i <= index; i++) {
             prevNode = currentNode;
             currentNode = currentNode.getNextNode();
@@ -90,6 +88,7 @@ public class MyLinkedList {
                 return;
             }
         }
+        Node nextNewNode;
         if (currentNode.getNextNode() != null) {
             nextNewNode = currentNode.getNextNode();
         } else {
@@ -97,5 +96,18 @@ public class MyLinkedList {
         }
         prevNode.setNextNode(nextNewNode);
         DecElementsSize();
+    }
+    public void PrintList(){
+        Node currentNode = this.head;
+        int index = 0;
+        while (currentNode != null) {
+            if (currentNode.getNextNode() != null){
+                currentNode = currentNode.getNextNode();
+                system.out.println("Object's Index's:" + index);
+                system.out.println("Object's Value's:" + currentNode.getVal());
+                index++;
+            }
+        }
+    }
     }
 }
