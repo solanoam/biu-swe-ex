@@ -7,6 +7,7 @@ public class MyLinkedList {
 
     public MyLinkedList(Node head) {
         this.head = head;
+        this.elementsNum = 1;
     }
 
     public Node getHead() {
