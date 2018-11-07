@@ -9,6 +9,11 @@ public class MyLinkedList {
         this.head = head;
         this.elementsNum = 1;
     }
+    public MyLinkedList() {
+        this.head = null;
+        this.elementsNum = 1;
+    }
+
 
     public Node getHead() {
         return head;
