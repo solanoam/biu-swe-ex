@@ -4,12 +4,13 @@
  * Course: 83-459-01 (Software engineering)
  * Practice: 83-459-03 (Gil)
  **************************************/
+//imports
 package com.company;
-import DS.Node;
-import DS.MyLinkedList;
+import DS.*;
 import java.util.Scanner;
 
 public class Main {
+    //prints menu
     private static void printMenu(){
         System.out.println("Choose your option with an inout from the keyboard.");
         System.out.println("Note, that only a correct input will be accepted.");
@@ -21,15 +22,23 @@ public class Main {
         System.out.println("6: Reverse the order of the linked list");
         System.out.println("7: Exit");
     }
-
+    //main
     public static void main(String[] args) {
+        //main list in the program
         MyLinkedList mainList = new MyLinkedList();
+        //input
         int usrChoice;
-        System.out.println("Welcome to the Educational Node and Linked List simulator!");
-        printMenu();
+        //init scanner
         Scanner in = new Scanner(System.in);
+        //welcoming user
+        System.out.println("Welcome to the Educational Node and Linked List simulator!");
+        //first printing of menu
+        printMenu();
+        //getting input
         usrChoice = in.nextInt();
+        //looping until 7 is pressed
         while (true) {
+            //switch case - self explained by the printMenu
             switch (usrChoice) {
                 case 1: {
                     System.out.println("Please insert your desired value:");

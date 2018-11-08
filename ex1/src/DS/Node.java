@@ -7,25 +7,25 @@
 package DS;
 
 public class Node {
-
     private int val;
     private Node nextNode;
 
+    //default constructor
     public Node() {
         this.val = 0;
         this.nextNode = null;
     }
-
+    //constructor
     public Node(int val) {
         this.val = val;
         this.nextNode = null;
     }
-
+    //constructor
     public Node(int val, Node nextNode) {
         this.val = val;
         this.nextNode = nextNode;
     }
-
+    //setters and getters
     public void setVal(int val) {
         this.val = val;
     }
