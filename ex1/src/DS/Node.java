@@ -1,3 +1,9 @@
+/**************************************
+ * Author: Noam Solan
+ * ID: 204484703
+ * Course: 83-459-01 (Software engineering)
+ * Practice: 83-459-03 (Gil)
+ **************************************/
 package DS;
 
 public class Node {

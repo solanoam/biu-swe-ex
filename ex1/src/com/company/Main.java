@@ -1,11 +1,17 @@
-package main;
-import DS.*;
+/**************************************
+ * Author: Noam Solan
+ * ID: 204484703
+ * Course: 83-459-01 (Software engineering)
+ * Practice: 83-459-03 (Gil)
+ **************************************/
+package com.company;
+import DS.Node;
+import DS.MyLinkedList;
 import java.util.Scanner;
 
 public class Main {
     private static void printMenu(){
-        System.out.println("Welcome to the Educational Node and Linked List simulator!");
-        System.out.println("choose your option with an inout from the keyboard.");
+        System.out.println("Choose your option with an inout from the keyboard.");
         System.out.println("Note, that only a correct input will be accepted.");
         System.out.println("1: Add a new node with your desired value to the end of the linked list");
         System.out.println("2: Add a new node with your desired value a specified index in linked list");
@@ -18,7 +24,8 @@ public class Main {
 
     public static void main(String[] args) {
         MyLinkedList mainList = new MyLinkedList();
-        int usrChoice = -1;
+        int usrChoice;
+        System.out.println("Welcome to the Educational Node and Linked List simulator!");
         printMenu();
         Scanner in = new Scanner(System.in);
         usrChoice = in.nextInt();
@@ -44,20 +51,21 @@ public class Main {
                     break;
                 }
                 case 4: {
-                    System.out.println("Please insert an index you a Node to be removed from:");
+                    System.out.println("Please insert an index you want a Node to be removed from:");
                     int val = in.nextInt();
                     mainList.RemoveNode(val);
-                    System.out.println("The node at index" + val + "is now removed from the list");
+                    System.out.println("The node at index " + val + " is now removed from the list");
                     break;
                 }
                 case 5: {
-                    System.out.println("Printing the list");
+                    System.out.println("Printing the list:\n");
                     mainList.PrintList();
                     break;
                 }
                 case 6: {
                     mainList.Reverse();
                     System.out.println("Your List is now reversed");
+                    break;
                 }
                 case 7: {
                     System.out.println("Bye Bye");
@@ -67,8 +75,6 @@ public class Main {
                     System.out.println("The input is incorrect. Please read the manual and try again.");
                     break;
                 }
-
-
             }
             printMenu();
             usrChoice = in.nextInt();
