@@ -10,7 +10,7 @@ public class Main {
         System.out.println("1: Add a new node with your desired value to the end of the linked list");
         System.out.println("2: Add a new node with your desired value a specified index in linked list");
         System.out.println("3: Delete a node from the end of the list");
-        System.out.println("4: Add a new node with your desired value a specified index in linked list");
+        System.out.println("4: Delete a node from a specified index");
         System.out.println("5: Print the linked list");
         System.out.println("6: Reverse the order of the linked list");
         System.out.println("7: Exit");
@@ -22,36 +22,52 @@ public class Main {
         printMenu();
         Scanner in = new Scanner(System.in);
         usrChoice = in.nextInt();
-        while (usrChoice != 7) {
+        while (true) {
             switch (usrChoice) {
                 case 1: {
-
+                    System.out.println("Please insert your desired value:");
+                    Node newNode = new Node(in.nextInt());
+                    mainList.AddNode(newNode);
                     break;
                 }
                 case 2: {
-                    monthString = "February";
+                    System.out.println("Please insert your desired value:");
+                    Node newNode = new Node(in.nextInt());
+                    System.out.println("Please insert your desired index in the list:");
+                    int index = in.nextInt();
+                    mainList.AddNode(newNode, index);
                     break;
                 }
                 case 3: {
-                    monthString = "January";
+                    mainList.RemoveNode();
+                    System.out.println("The last Node was removed.");
                     break;
                 }
                 case 4: {
-                    monthString = "February";
+                    System.out.println("Please insert an index you a Node to be removed from:");
+                    int val = in.nextInt();
+                    mainList.RemoveNode(val);
+                    System.out.println("The node at index" + val + "is now removed from the list");
                     break;
                 }
                 case 5: {
-                    monthString = "January";
+                    System.out.println("Printing the list");
+                    mainList.PrintList();
                     break;
                 }
                 case 6: {
-                    monthString = "February";
-                    break;
+                    mainList.Reverse();
+                    System.out.println("Your List is now reversed");
                 }
                 case 7: {
-                    monthString = "February";
+                    System.out.println("Bye Bye");
+                    return;
+                }
+                default: {
+                    System.out.println("The input is incorrect. Please read the manual and try again.");
                     break;
                 }
+
 
             }
             printMenu();

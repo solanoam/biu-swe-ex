@@ -1,4 +1,3 @@
-
 package DS;
 
 public class MyLinkedList {
@@ -40,6 +39,11 @@ public class MyLinkedList {
 
     public void AddNode(Node n){
         Node currentNode = this.head;
+        //new list
+        if (currentNode == null){
+            setHead(n);
+            return;
+        }
         while (currentNode != null) {
             if (currentNode.getNextNode() != null){
                 currentNode = currentNode.getNextNode();
