@@ -6,7 +6,8 @@
  **************************************/
 //imports
 package com.company;
-import DS.*;
+import DS.MyLinkedList;
+import DS.Node;
 import java.util.Scanner;
 
 public class Main {
