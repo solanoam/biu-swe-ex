@@ -8,7 +8,6 @@ package frontend;
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.PrintStream;
-
 import java.net.Socket;
 import java.util.Scanner;
 
@@ -18,11 +17,6 @@ public class Client {
     private DataInputStream toClientPipe;
     private PrintStream toServerPipe;
     private Scanner userInput;
-
-    public void getUserInput() {
-        String input = userInput.nextLine();
-        setMethod(input);
-    }
 
     public void PrintToConsole(){
         System.out.println(getMethod() + " was sent to the server and returned" + toClientPipe.toString());
@@ -51,14 +45,19 @@ public class Client {
             try {
                 this.socket.close();
                 System.out.println("Client is disconnected");
-            }
-            catch (IOException ioExcept){}
+            }  catch (IOException ioExcept){}
         }
+    }
+
+    public void getUserInput() {
+        String input = this.userInput.nextLine();
+        setMethod(input);
     }
 
     public String getMethod() {
         return method;
     }
+
     public void setMethod(String method) {
         this.method = method;
     }
