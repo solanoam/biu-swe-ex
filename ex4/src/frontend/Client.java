@@ -19,7 +19,10 @@ public class Client {
     private Scanner userInput;
 
     public void PrintToConsole(){
-        System.out.println(getMethod() + " was sent to the server and returned" + toClientPipe.toString());
+        try {
+            System.out.println(getMethod() + " was sent to the server.");
+            System.out.println("The server replied with \"" + toClientPipe.readLine() + "\"");
+        } catch (Exception ioEXception) {}
     }
 
     public void Session(String ip, int port){
@@ -38,6 +41,7 @@ public class Client {
                 this.PrintToConsole();
                 this.getUserInput();
             }
+            toServerPipe.println(getMethod());
         } catch (Exception connectionFailed) {
             System.out.println("Connection failed"); System.err.println(connectionFailed);
         }
@@ -61,6 +65,4 @@ public class Client {
     public void setMethod(String method) {
         this.method = method;
     }
-
-
 }
